@@ -25,6 +25,27 @@
 	        implementation 'com.github.Sivakumar00:EasyNews:EasyNews-1.0.1'
 	}
 ```
+
+#### MAVEN
+
+```
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+  ##### Add the dependency 
+     
+```
+<dependency>
+	    <groupId>com.github.Sivakumar00</groupId>
+	    <artifactId>EasyNews</artifactId>
+	    <version>EasyNews-1.1.1</version>
+	</dependency>
+```
+
 #### Usage
 - Get API KEY from 
   [NewsAPI](https://newsapi.org/)
