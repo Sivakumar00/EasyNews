@@ -121,4 +121,9 @@ EasyNews.intialize("API_KEY");
         ...
     }
  ```
+ [Easy News library usage sample project](https://github.com/Sivakumar00/EasyNews_Sample_Project)
+ 
+
+#### Note : Create your own API key at Newsapi.org
+ 
  
