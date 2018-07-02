@@ -2,13 +2,13 @@ package com.siva;
 
 public class Category {
 
-    static String BUSINESS="business";
-    static String ENTERTAINMENT ="entertainment";
-    static String GENERAL="general";
-    static String HEALTH="health";
-    static String SCIENCE="science";
-    static String SPORTS="sports";
-    static String TECHNOLOGY="technology";
+   public static String BUSINESS="business";
+    public static String ENTERTAINMENT ="entertainment";
+    public static String GENERAL="general";
+    public static String HEALTH="health";
+    public static String SCIENCE="science";
+    public static String SPORTS="sports";
+    public static String TECHNOLOGY="technology";
 
 
 
