@@ -56,9 +56,8 @@ public class EasyNews {
             JSONArray articleArray = jsonObject.getJSONArray("sources");
             List<Map> finalList = new ArrayList<Map>();
 
-            for (int i = 0; i < articleArray.length(); i++) {
-                finalList = mappingList(articleArray, i);
-            }
+
+                finalList = mappingList(articleArray);
 
             return finalList;
         }else {
@@ -95,11 +94,8 @@ public class EasyNews {
 
 
             JSONArray articleArray=jsonObject.getJSONArray("sources");
-            List<Map> finalList=new ArrayList<Map>();
+            List<Map> finalList=mappingList(articleArray);
 
-            for(int i=0;i<articleArray.length();i++){
-                finalList=mappingList(articleArray,i);
-            }
 
             return finalList;
     }
@@ -136,10 +132,8 @@ public class EasyNews {
             }
             JSONObject jsonObject = new JSONObject(responseString);
             JSONArray articleArray=jsonObject.getJSONArray("articles");
-            List<Map> list=new ArrayList<Map>();
-            for(int i=0;i<articleArray.length();i++){
-                list= mappingListArticle(articleArray,i);
-            }
+            List<Map> list=mappingListArticle(articleArray);
+
 
             return list;
     }
@@ -172,11 +166,7 @@ public class EasyNews {
             }
             JSONObject jsonObject = new JSONObject(responseString);
             JSONArray articleArray=jsonObject.getJSONArray("articles");
-            List<Map> list=new ArrayList<Map>();
-            for(int i=0;i<articleArray.length();i++){
-                list= mappingListArticle(articleArray,i);
-            }
-
+            List<Map> list=mappingListArticle(articleArray);
             return list;
         }
         else {
@@ -186,35 +176,44 @@ public class EasyNews {
      }
 
 
-    private static List<Map> mappingList(JSONArray sourceArray,int i){
+    private static List<Map> mappingList(JSONArray sourceArray){
         List<Map> list=new ArrayList<Map>();
-        JSONObject count=sourceArray.getJSONObject(i);
-        Map<String,String> map=new HashMap<>();
-        map.put("id",count.optString("id"));
-        map.put("name",count.optString("name"));
-        map.put("description",count.optString("description"));
-        map.put("url",count.optString("url"));
-        map.put("category",count.optString("category"));
-        map.put("language",count.optString("language"));
-        map.put("country",count.optString("country"));
 
-        list.add(map);
+        for(int i=0;i<sourceArray.length();i++){
+
+            JSONObject count=sourceArray.getJSONObject(i);
+            Map<String,String> map=new HashMap<String, String>();
+            map.put("id",count.optString("id"));
+            map.put("name",count.optString("name"));
+            map.put("description",count.optString("description"));
+            map.put("url",count.optString("url"));
+            map.put("category",count.optString("category"));
+            map.put("language",count.optString("language"));
+            map.put("country",count.optString("country"));
+
+            list.add(map);
+        }
+
         return list;
     }
 
-    private static List<Map> mappingListArticle(JSONArray articleArray,int i){
+    private static List<Map> mappingListArticle(JSONArray articleArray){
         List<Map> list=new ArrayList<Map>();
-        JSONObject count=articleArray.getJSONObject(i);
-        Map<String,String> map=new HashMap<>();
-        map.put("author",count.optString("author"));
-        map.put("title",count.optString("title"));
-        map.put("description",count.optString("description"));
-        map.put("url",count.optString("url"));
-        map.put("urlToImage",count.optString("urlToImage"));
-        map.put("publishedAt",count.optString("publishedAt"));
+
+        for(int i=0;i<articleArray.length();i++){
+            JSONObject count=articleArray.getJSONObject(i);
+            Map<String,String> map=new HashMap<>();
+            map.put("author",count.optString("author"));
+            map.put("title",count.optString("title"));
+            map.put("description",count.optString("description"));
+            map.put("url",count.optString("url"));
+            map.put("urlToImage",count.optString("urlToImage"));
+            map.put("publishedAt",count.optString("publishedAt"));
 
 
-        list.add(map);
+            list.add(map);
+        }
+
         return list;
     }
 
